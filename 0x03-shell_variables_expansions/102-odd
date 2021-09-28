@@ -1,2 +1,2 @@
 #!/bin/bash
-perl -ne 'print if $. % 5 == 0;' infile > outfile
+awk '!(NR%3)'
