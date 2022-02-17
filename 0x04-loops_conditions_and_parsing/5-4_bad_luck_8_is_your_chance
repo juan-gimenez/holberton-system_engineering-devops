@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Learning to use while and if statements.
+n=0;
+while [ $n -lt 10 ];
+do
+if [ $n == 7 ]; then
+   echo "good luck"
+   elif [ $n == 3 ]; then
+   	echo "bad luck"
+	else
+		echo "Best School"
+		fi
+		n=$((n+1))
+		done

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# display best school and hi at 9th position.
+n=0;
+while [ $n -lt 10 ];
+do
+echo "Best School"
+if [ $n == 8 ]; then
+echo "Hi"
+fi
+n=$((n+1))
+done
