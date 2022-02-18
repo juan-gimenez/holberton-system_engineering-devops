@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#display lines which include bash and get pid easily
+# shellcheck disable=SC2009
+
+ps aux |grep bash
