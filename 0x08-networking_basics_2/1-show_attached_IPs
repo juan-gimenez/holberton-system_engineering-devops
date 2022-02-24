@@ -2,4 +2,4 @@
 #Bash script that displays all active IPv4 IPs
 # always on the current machine
 
-ifconfig | grep "inet" | awk '{print $2}'
+ifconfig pgrep -o-p | awk{print$2}
