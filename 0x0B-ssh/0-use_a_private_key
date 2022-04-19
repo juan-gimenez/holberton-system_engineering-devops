@@ -2,4 +2,4 @@
 # connect to my server through ssh
 
 ssh -i ~/.ssh/school
-ubuntu@35.231.108.125
+ubuntu@35.237.231.11
