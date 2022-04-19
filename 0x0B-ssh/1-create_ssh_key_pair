@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+ssh-keygen -b 4096 -f school -P betty
+# b is size, f is Name of the created private key
+# p is  the passphrase
