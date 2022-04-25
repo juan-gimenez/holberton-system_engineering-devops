@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# HAproxy install lb
+
+apt update
+apt install -y haproxy=2.0.\*
+
+printf %s "
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+backend http_back
+    balance roundrobin
+    server 3342-web-01	35.237.231.11:80 check
+    server 3342-web-02  54.242.229.40:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+service haproxy start
