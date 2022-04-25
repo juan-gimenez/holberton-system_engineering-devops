@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Double the number of webservers
 
+hstname="\\\tadd_header X-Served-By $HOSTNAME;"
+
 sudo apt-get -y update
 sudo apt-get install -y nginx
 
@@ -9,4 +11,6 @@ echo "Hello World" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 sudo sed -i '/^\tserver_name.*/a \\n\trewrite ^\/redirect_me/$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n\n\terror_page 404 \/error404.html;' /etc/nginx/sites-available/default
 sudo sed -i '/^\tinclude \/etc\/nginx\/sites-enabled\/\*;/a \\n\tadd_header X-Served-By $HOSTNAME;' /etc/nginx/nginx.conf
+sudo sed -i "27i $hstname" /etc/nginx/sites-available/default
+
 service nginx restart
