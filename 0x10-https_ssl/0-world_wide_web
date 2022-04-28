@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+# use at least one function
+
+functiontoshowinfo ()
+{
+    domain="$1"
+    subdomain="$2"
+    dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+}
+
+for subdomain in "www" "lb-01" "web-01" "web-02"
+do
+        if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
+        then
+	    functiontoshowinfo "$1" "$subdomain"
+	fi
+done
