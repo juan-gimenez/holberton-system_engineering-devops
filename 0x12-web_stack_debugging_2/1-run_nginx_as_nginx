@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# comment
 
 sudo pkill -9 apache2
 sudo chown nginx:nginx /etc/nginx/nginx.conf
