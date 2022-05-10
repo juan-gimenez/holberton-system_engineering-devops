@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# take argument
+# change usr
+
+sudo -u "$1" whoami
