@@ -12,17 +12,16 @@ if __name__ == '__main__':
     todos_to_json = rtodos.json()
     users_to_json = rusers.json()
 
-    name = users_to_json[int(argv[1]) - 1]['name']
     emp_id = int(argv[1])
-
+    name = users_to_json[int(argv[1]) - 1]['name']
     task = 0
     done = 0
-    l = []
+    list_titles = []
     for i in todos_to_json:
         if i['userId'] == emp_id:
             if i['completed'] is True:
                 done += 1
-                done.append(i['title'])
+                list_titles.append(i['title'])
             task += 1
 
     print('Employee {} is done with tasks({}/{}):'.format(
