@@ -26,5 +26,5 @@ if __name__ == '__main__':
 
     print('Employee {} is done with tasks({}/{}):'.format(
         name, done, task))
-    for TASK_TITLE in l:
+    for TASK_TITLE in list_titles:
         print('\t {}'.format(TASK_TITLE))
