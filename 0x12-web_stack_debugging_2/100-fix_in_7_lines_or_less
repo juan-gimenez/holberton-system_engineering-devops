@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# nginx config in 7 lines
+sudo pkill -f apache2
+sudo sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-available/default
+sudo chmod 644 /etc/nginx/nginx.conf
+sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
