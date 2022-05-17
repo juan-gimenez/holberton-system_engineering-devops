@@ -17,9 +17,9 @@ if __name__ == "__main":
     r_todo = requests.get(t_url).json()
     r_user = requests.get(us_url).json()
 
-    with open("{}.csv".format(usr), newline='') as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+    with open('{}.csv'.format(usr), 'w') as csvfile:
+        csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in r_todo:
-            writer.writerow([int(usr),r_user.get('username'),
+            csvwriter.writerow([int(usr),r_user.get('username'),
                              task.get('completed'),
                              task.get('title')])
