@@ -20,6 +20,6 @@ if __name__ == "__main":
     with open('{}.csv'.format(usr), 'w') as csvfile:
         csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in r_todo:
-            csvwriter.writerow([int(usr),r_user.get('username'),
-                             task.get('completed'),
-                             task.get('title')])
+            csvwriter.writerow([int(usr), r_user.get('username'),
+                                task.get('completed'),
+                                task.get('title')])
