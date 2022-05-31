@@ -14,8 +14,13 @@ def number_of_subscribers(subreddit):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36'
     }
     resp = requests.get(url, headers=h, allow_redirects=False)
-    if resp.status_code == 404:
+    resp.raise_for_status()
+    if resp.status_code != 200:
+        return 0
+    resp_json = resp.json()
+    if 'suscribers' not in resp_json.get('data'):
+        return 0
+    elif 'data' not in resp_json:
         return 0
     else:
-        result = resp.json().get('data')
-        return result.get('subscribers')
+        return resp_json['data']['subscribers']
